@@ -1,4 +1,11 @@
 /* NowCulture app — feed, explore, saved, cart, WhatsApp checkout (all client-side, localStorage-persisted) */
+/* ============================================================
+   YOUR WHATSAPP NUMBER — this is the ONLY place you change it.
+   Format: country code + number, digits only, no + or spaces.
+   Example (South Africa): "27821234567" for 082 123 4567.
+   Every WhatsApp button on the site (chat, quick-order, product
+   order and bag checkout) uses this number automatically.
+   ============================================================ */
 const WA_NUMBER = "27613446518";
 const SIZES = ["3","4","5","6","7","8","9"];
 const $ = s => document.querySelector(s);
@@ -169,4 +176,6 @@ document.addEventListener("keydown", e=>{ if(e.key==="Escape"){ closeModal(); to
 $("#modal").addEventListener("click", e=>{ if(e.target.id==="modal") closeModal(); });
 $("#cartWrap").addEventListener("click", e=>{ if(e.target.id==="cartWrap") toggleCart(false); });
 
+const waBtn = document.getElementById("waChatBtn");
+if (waBtn) waBtn.href = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent("Hi NowCulture! I need help choosing a pair 👟")}`;
 renderStories(); renderChips(); renderRails(); render();
