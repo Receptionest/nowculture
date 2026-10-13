@@ -1,5 +1,8 @@
 name: Import product images
 on:
+  push:
+    branches: [arena/107c3038-nowculture]
+    paths: [scripts/import_images.py, .github/workflows/import-images.yml]
   workflow_dispatch:
 permissions:
   contents: write
