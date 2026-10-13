@@ -27,6 +27,16 @@ names, prices and images (`assets/images/`) are all local. Nothing is hotlinked 
 To add a shoe: drop its image into `assets/images/` as the next number and add a row in
 `assets/products.js` (format documented at the top of that file).
 
+## Pricing — SA market prices
+Every single shoe is priced at current South African market/retail value for its model
+(not a flat rate): Vans from R1,299 · Samba R1,899 · Speedcat R1,999 · Dunk Low R2,299 ·
+Shox R4 R2,999 · NB 9060 R3,199 · Jordan 1 R3,699 · Jordan 3 R4,099 · Jordan 4 R4,199 ·
+Bapesta R3,999 · Diesel R3,499 · Karl R3,599 · Timberland Premium 6-inch R4,999 ·
+Travis Scott collab at resale market R9,499. Combos = both pairs at market price, less 30%
+(the struck-through price shows the combined separate cost). Benchmarks checked Oct 2026
+against Nike ZA, Shelflife, Timberland SA and SA brand retail. Re-check quarterly and edit
+the price fields (3rd/4th values per row) in `assets/products.js`.
+
 ## Ordering
 "Add to bag" → Checkout opens WhatsApp (+27 61 344 6518) with the full NowCulture order pre-filled.
 Free delivery + one free gift per order.
