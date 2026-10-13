@@ -15,7 +15,7 @@ let activeBrand = "All", view = "feed", query = "";
 let modalId = null, modalSize = null, modalQty = 1;
 
 const initials = b => b.split(" ").map(x=>x[0]).join("").slice(0,2).toUpperCase();
-const hashtags = p => p.combo ? "#SneakerCombos #Take2 #NowCulture #SGM #KicksSA" :
+const hashtags = p => p.combo ? "#SneakerCombos #Take2 #NowCulture #KicksSA" :
   `#${p.brand.replace(/\s/g,"")} #NowCulture #KicksSA #SneakerCulture #MzansiStyle`;
 const captionFor = p => p.combo
   ? `COMBO DEAL 🎁 Two pairs, one price — save ${p.was?money(p.was-p.price):""} vs buying separately. Free delivery + a free gift.`
@@ -112,18 +112,17 @@ function toggleSave(id){ saved.has(id)?saved.delete(id):saved.add(id); store.set
 function focusComment(id){ const i=$("#cinput-"+id); if(i){ i.focus(); i.scrollIntoView({behavior:"smooth",block:"center"}); } }
 function addComment(e,id){ e.preventDefault(); const i=$("#cinput-"+id); const t=i.value.trim(); if(!t) return;
   (comments[id]=comments[id]||[]).push({user:"you",text:t.replace(/</g,"&lt;")}); store.set("comments",comments); render(); toast("Comment posted 💬"); }
-async function shareProduct(id){ const p=PRODUCTS.find(x=>x.id===id); const url=p.src;
+async function shareProduct(id){ const p=PRODUCTS.find(x=>x.id===id); const url=location.origin+location.pathname+"#post-"+p.id;
   if(navigator.share){ try{ await navigator.share({title:"NowCulture — "+p.name, text:`${p.name} for ${money(p.price)} at NowCulture 👟`, url}); }catch{} }
   else { try{ await navigator.clipboard.writeText(url); toast("Link copied 🔗"); }catch{ toast(url); } } }
 function quickWhatsApp(id){ const p=PRODUCTS.find(x=>x.id===id);
-  openWA(`Hi NowCulture! 👟 I'm interested in:\n\n*${p.name}* (${p.brand})\nPrice: ${money(p.price)}\nLink: ${p.src}\n\nIs it available in my size?`); }
+  openWA(`Hi NowCulture! 👟 I'm interested in:\n\n*${p.name}* (${p.brand})\nPrice: ${money(p.price)}\n\nIs it available in my size?`); }
 
 function setView(v){ view=v; document.querySelectorAll(".menu button[data-view]").forEach(b=>b.classList.toggle("active",b.dataset.view===v));
   $("#feed").hidden = v==="explore"; $("#grid").hidden = v!=="explore"; render(); window.scrollTo({top:0,behavior:"smooth"}); }
 function filterBrand(b){ activeBrand=b; if(view==="saved") view="feed"; setView(view); renderStories(); renderChips(); }
 function goHome(e){ e.preventDefault(); activeBrand="All"; setView("feed"); renderStories(); renderChips(); }
 function focusSearch(){ $("#searchInput").focus(); window.scrollTo({top:0,behavior:"smooth"}); const s=document.querySelector(".searchbox"); if(s) s.style.display="flex"; }
-function openPlan(){ window.open("docs/NowCulture-Social-Media-and-WhatsApp-Marketing-Plan.pdf","_blank"); }
 
 /* modal */
 function openProduct(id){ const p=PRODUCTS.find(x=>x.id===id); modalId=id; modalSize=null; modalQty=1;
@@ -131,7 +130,7 @@ function openProduct(id){ const p=PRODUCTS.find(x=>x.id===id); modalId=id; modal
   $("#mBrand").textContent = p.brand + (p.combo?" · Sneaker Combo":""); $("#mName").textContent=p.name;
   $("#mPrice").innerHTML = (p.was?`<s>${money(p.was)}</s>`:"")+money(p.price);
   $("#mCaption").textContent = captionFor(p)+" "+hashtags(p);
-  $("#mQty").textContent="1"; $("#mSource").href=p.src;
+  $("#mQty").textContent="1";
   $("#mSave").textContent = saved.has(id)?"🔖 Saved — tap to remove":"🔖 Save for later";
   $("#mSizes").innerHTML = SIZES.map(s=>`<button onclick="pickSize('${s}',this)">${s}</button>`).join("");
   $("#mAdd").onclick = ()=>addToBag(); $("#mWa").onclick = ()=>orderWhatsApp();
@@ -144,7 +143,7 @@ function addToBag(){ if(!modalSize){ toast("Please pick a size first 👟"); ret
   const found=cart.find(c=>c.id===modalId&&c.size===modalSize);
   found?found.qty+=modalQty:cart.push({id:modalId,size:modalSize,qty:modalQty});
   store.set("cart",cart); render(); closeModal(); toast("Added to bag 🛍️"); toggleCart(true); }
-function waTextFor(p,size,qty){ return `Hi NowCulture! 👟 I'd like to order:\n\n*${p.name}* (${p.brand})\nSize (UK): ${size||"— please advise"}\nQty: ${qty||1}\nPrice: ${money(p.price)}\nLink: ${p.src}\n\nPlease confirm availability, payment & free delivery. Thank you!`; }
+function waTextFor(p,size,qty){ return `Hi NowCulture! 👟 I'd like to order:\n\n*${p.name}* (${p.brand})\nSize (UK): ${size||"— please advise"}\nQty: ${qty||1}\nPrice: ${money(p.price)}\n\nPlease confirm availability, payment & free delivery. Thank you!`; }
 function orderWhatsApp(){ if(!modalSize){ toast("Pick a size so we can check stock 👟"); return; }
   const p=PRODUCTS.find(x=>x.id===modalId); openWA(waTextFor(p,modalSize,modalQty)); }
 function openWA(text){ window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`,"_blank"); }

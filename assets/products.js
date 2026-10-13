@@ -1,12 +1,9 @@
-/* NowCulture catalogue — collected from sgmtouch.co.za (Shopify) on 13 Oct 2026.
-   Every brand collection + every combo collection was scrolled; names, prices and
-   images below are the real SGM Touch listings. Images are served from the SGM
-   Shopify CDN (width=900) and rendered with object-fit:cover so they always fit.
-   Fields: n=name, b=brand, p=price(ZAR), w=was(ZAR,0=none), i=image, h=source handle, c=combo */
-const CDN = "https://sgmtouch.co.za/cdn/shop/files/";
-const IMG = f => CDN + f + "&width=900";
+/* NowCulture catalogue — every shoe lives on this site.
+   All product images are hosted locally in assets/images/ (001-175) and are
+   rendered with object-fit:cover so they always fit perfectly.
+   Fields: name, brand, price(ZAR), was(ZAR,0=none), image-file, slug, combo */
 const RAW = [
-/* ---------------- NIKE (SGM collection: 221 listings) ---------------- */
+/* ---------------- NIKE ---------------- */
 ["NIKE SHOX WHITE METALLIC","Nike",1450,0,"NIKE_SHOX_R4_2.avif?v=1791719397","untitled-11oct_13-41-02",0],
 ["NIKE AIRMAX 90 LEOPARD RUST","Nike",1450,0,"E_f097fc18-fc9c-4dca-b1bb-cccbf47e30ae.webp?v=1791333418","nike-airmax-90-leopard-rust",0],
 ["NIKE LOWDUNK THE SNAKE","Nike",1450,0,"28458085_59723554_1000.webp?v=1791332798","nike-lowdunk-the-snake",0],
@@ -21,7 +18,7 @@ const RAW = [
 ["NIKE SHOX R4 ALL WHITE","Nike",1450,0,"rn-image_picker_lib_temp_875d2bc5-f1b1-4f97-8c64-ef35dde197a8.png?v=1791313589","nike-shox-r4-all-white",0],
 ["NIKE P6000 DYNASTY","Nike",1450,0,"rn-image_picker_lib_temp_b3fb0a66-8e2b-4054-bd32-b59a3d27eb19.jpg?v=1791313589","nike-p6000-dynasty",0],
 ["NIKE P6000 GREY FOG","Nike",1450,0,"rn-image_picker_lib_temp_0ed65a65-be58-44c7-a6c8-228d212708d4.png?v=1791313589","nike-p6000-grey-fog",0],
-/* ---------------- JORDAN (SGM collection: 50 listings) ---------------- */
+/* ---------------- JORDAN ---------------- */
 ["JORDAN 3 SAIL","Jordan",1450,0,"air-jordan-3-world-s-best-release-date.avif?v=1791327154","jordan-3-sail",0],
 ["JORDAN 3 ORANGE PEEL","Jordan",1450,0,"women-s-air-jordan-3-white-and-orange-peel-ck9246-101-release-date.avif?v=1791327010","jordan-3-orange-peel",0],
 ["NIKE JORDAN 1 COOL GREY","Jordan",1450,0,"air-jordan-1-retro-hi-og-rmstd-release-date.avif?v=1791326101","nike-jordan-1-cool-grey",0],
@@ -38,7 +35,7 @@ const RAW = [
 ["NIKE JORDAN 1 REVERSE BRED","Jordan",1450,0,"rn-image_picker_lib_temp_2d4c328d-1d3d-4ef7-8704-232548849f5e.jpg?v=1791188102","j1",0],
 ["NIKE JORDAN 1 SKY GREY","Jordan",1450,0,"rn-image_picker_lib_temp_fa63789e-017d-4d5d-8b16-c439e5127a73.webp?v=1791188214","jk",0],
 ["JORDAN 4 RETRO GREY","Jordan",1450,1800,"women-s-air-jordan-4-frozen-moments-aq9129-001-release-date.avif?v=1771460073","jordan-4-retro-grey",0],
-/* ---------------- ADIDAS (SGM collection: 57 listings) ---------------- */
+/* ---------------- ADIDAS ---------------- */
 ["ADIDAS SAMBA Rhinestone","Adidas",1450,0,"rn-image_picker_lib_temp_42933ff8-bc43-4ac0-b83f-02ba3f5a4e95.jpg?v=1791615183","adidas-samba-rhinestone",0],
 ["ADIDAS SAMBA JANE C LEATHER","Adidas",1450,0,"KJ3969_01_00_standard.avif?v=1791330459","adidas-samba-jane-c-leather",0],
 ["ADIDAS SAMBA JANE FLOWER","Adidas",1450,0,"IMG-8173.webp?v=1791330184","adidas-samba-jane-flower",0],
@@ -55,7 +52,7 @@ const RAW = [
 ["ADIDAS SL72 OG","Adidas",1450,0,"rn-image_picker_lib_temp_87d2240e-f9b4-42d3-a10b-36922c21aa89.jpg?v=1791188002","uytrtf5v",0],
 ["ADIDAS ADIZERO E1","Adidas",1450,0,"rn-image_picker_lib_temp_e8cd8c95-5c18-478a-a34f-8b1890af65dd.jpg?v=1791188003","hbgfgh",0],
 ["ADIDAS SPEZIAL PURPLE","Adidas",1450,0,"rn-image_picker_lib_temp_6af68f5c-69e6-448d-8437-54e51253c8cc.jpg?v=1791188102","ccx",0],
-/* ---------------- NEW BALANCE (SGM collection: 33 listings) ---------------- */
+/* ---------------- NEW BALANCE ---------------- */
 ["NEW BALANCE 9060 GS","New Balance",1450,0,"rn-image_picker_lib_temp_bd6df191-1416-4e50-9c41-f3c4c04cd3d3.jpg?v=1791197889","new-balance-9060-gs",0],
 ["NEW BALANCE DECEMBER SKY","New Balance",1450,0,"rn-image_picker_lib_temp_b69e1d85-f2b5-4380-9683-8593b241b508.jpg?v=1791188002","jhbvc",0],
 ["NEW BALANCE 9060 BURGUNDY","New Balance",1450,0,"rn-image_picker_lib_temp_e6608c52-81a1-4203-8389-f788ed74d651.jpg?v=1791188002","tgbvcd",0],
@@ -72,7 +69,7 @@ const RAW = [
 ["NEW BALANCE 1000 PINK","New Balance",1450,1800,"IMG_8985.webp?v=1771884607","new-balance-1000-pink",0],
 ["NEW BALANCE 9060 MUSHROOM BROWN","New Balance",1450,1800,"new-balance-9060-mushroom-brown_22295283_47780004_1000.webp?v=1771958587","new-balance-9060-mushroom-brown",0],
 ["NEW BALANCE 327 CREAM WHITE","New Balance",1450,2100,"BT589_EE5142.webp?v=1757103041","new-balance-327-cream-white",0],
-/* ---------------- LACOSTE (SGM collection: 17 listings) ---------------- */
+/* ---------------- LACOSTE ---------------- */
 ["LACOSTE BASESHOT PLAQUE","Lacoste",1450,0,"rn-image_picker_lib_temp_46db7f34-898f-4005-9bff-1b72e9b26814.webp?v=1791313719","lacoste-baseshot-plaque",0],
 ["LACOSTE ELITE ACTIVE BROWN","Lacoste",1450,0,"rn-image_picker_lib_temp_9131e428-b5a9-4ba3-ac6c-efc671ed1fca.jpg?v=1791188003","edf5r",0],
 ["LACOSTE BASESHOT BLACK","Lacoste",1450,0,"rn-image_picker_lib_temp_153c3329-926e-431f-89ee-fab169a6bc6c.webp?v=1791188002","ertghgy",0],
@@ -197,6 +194,6 @@ const RAW = [
 ["BLACK TIMBERLAND +AIRFORCE","Combos",2399,3800,"rn-image_picker_lib_temp_603c405e-652f-4f6c-bdbf-14f97fc0cc8b.jpg?v=1747242592","black-timberland-airforce",1],
 ["BROWN TIMBERLAND + BROWN TIMBERLAND","Combos",3299,4500,"rn-image_picker_lib_temp_a7557d56-a31e-4527-bb9e-ba8918fb9612.jpg?v=1747247923","brown-timberland-brown-timberland",1]
 ];
-const PRODUCTS = RAW.map((r,i)=>({id:i+1,name:r[0],brand:r[1],price:r[2],was:r[3],img:IMG(r[4]),src:"https://sgmtouch.co.za/products/"+r[5],combo:!!r[6],
+const PRODUCTS = RAW.map((r,i)=>({id:i+1,name:r[0],brand:r[1],price:r[2],was:r[3],img:"assets/images/"+String(i+1).padStart(3,"0")+"."+(r[4].split("?")[0].split(".").pop().toLowerCase()),combo:!!r[6],
   likes: 120 + ((i*137)%4800), comments: 4 + ((i*31)%86)}));
 const BRANDS = ["All","Nike","Jordan","Adidas","New Balance","Lacoste","Puma","Converse","Vans","Diesel","Bapesta","Timberland","Karl Lagerfeld","Replay","Combos"];

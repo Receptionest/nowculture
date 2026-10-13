@@ -6,7 +6,6 @@
 <title>NowCulture — The Culture. On Your Feet. | Sneakers & Combos South Africa</title>
 <meta name="description" content="NowCulture is South Africa's sneaker feed. Shop Nike, Jordan, Adidas, New Balance & sneaker combos — scroll it like social, buy it in one tap. Free delivery, one free gift per order.">
 <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://sgmtouch.co.za">
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
@@ -46,10 +45,9 @@
       <button data-view="explore" onclick="setView('explore')">🧭 <span>Explore</span></button>
       <button data-view="saved" onclick="setView('saved')">🔖 <span>Saved</span> <b id="menuSaved"></b></button>
       <button onclick="filterBrand('Combos')">🎁 <span>Sneaker Combos</span></button>
-      <button onclick="openPlan()">📄 <span>Marketing Plan (PDF)</span></button>
       <button onclick="toggleCart(true)">🛍️ <span>Shopping Bag</span> <b id="menuCart"></b></button>
     </nav>
-    <p class="fineprint">Catalogue sourced live-style from SGM Touch (sgmtouch.co.za). Prices in ZAR. Sizes UK 3–9 on most styles — confirm on WhatsApp.</p>
+    <p class="fineprint">Every shoe is stocked & sold right here on NowCulture. Prices in ZAR. Sizes UK 3–9 on most styles — confirm on WhatsApp.</p>
   </aside>
 
   <!-- CENTRE FEED -->
@@ -78,7 +76,7 @@
       <h2>What the culture says ⭐⭐⭐⭐⭐</h2>
       <div class="revgrid">
         <article><b>Thandi Mkhize</b><span>Verified Purchase</span><p>“The quality of the shoes is outstanding! Comfortable, stylish, well-made. The Sneaker Combos are the best.”</p></article>
-        <article><b>Lerato Mokoena</b><span>Quality</span><p>“I bought Airforce from SGM in 2024, I still have them till today. Absolutely love them — buying another pair.”</p></article>
+        <article><b>Lerato Mokoena</b><span>Quality</span><p>“I bought Airforce from NowCulture in 2024, I still have them till today. Absolutely love them — buying another pair.”</p></article>
         <article><b>Sipho Ndlovu</b><span>Verified Purchase</span><p>“Exceeded my expectations! Premium feel, top-notch craftsmanship. Worth every rand. Will definitely order again!”</p></article>
         <article><b>Precious Mahlangu</b><span>Verified Purchase</span><p>“From ordering to delivery everything was smooth. Courier kept me updated, shoes arrived in perfect condition.”</p></article>
       </div>
@@ -87,9 +85,8 @@
     <footer class="sitefoot">
       <img src="assets/logo.svg" alt="" width="30" height="30">
       <p><b>nowculture</b> — The Culture. On Your Feet.<br>
-      Catalogue & imagery: SGM Touch, sgmtouch.co.za · WhatsApp orders: +27 61 344 6518<br>
+      WhatsApp orders: +27 61 344 6518 · Every product image is hosted on this site.<br>
       Brand names belong to their respective owners; NowCulture is a concept storefront. Prices include the current Spring Sale where shown.</p>
-      <p><a href="docs/NowCulture-Social-Media-and-WhatsApp-Marketing-Plan.pdf" download>📄 Download the Social Media & WhatsApp Marketing Plan (PDF)</a></p>
     </footer>
   </main>
 
@@ -99,11 +96,6 @@
     <div id="suggested"></div>
     <h3>Trending combos 🔥</h3>
     <div id="trending"></div>
-    <div class="planbox">
-      <h3>📈 Grow with the plan</h3>
-      <p>Full Instagram, TikTok, Facebook & WhatsApp marketing plan — 30-day calendar, scripts, budgets & KPIs.</p>
-      <button class="btn grad block" onclick="openPlan()">Open the PDF plan</button>
-    </div>
   </aside>
 </div>
 
@@ -126,7 +118,7 @@
         <button class="btn wa grow" id="mWa">💬 Order on WhatsApp</button>
       </div>
       <button class="btn ghost block" id="mSave">🔖 Save for later</button>
-      <ul class="perks"><li>🚚 Free delivery nationwide</li><li>🎁 One free gift per order</li><li>↩️ Size swap support on WhatsApp</li><li>🔗 <a id="mSource" target="_blank" rel="noopener">View original listing on SGM Touch</a></li></ul>
+      <ul class="perks"><li>🚚 Free delivery nationwide</li><li>🎁 One free gift per order</li><li>↩️ Size swap support on WhatsApp</li><li>✅ Sold &amp; delivered by NowCulture — this is the only store you need</li></ul>
     </div>
   </div>
 </div>
@@ -156,7 +148,6 @@
 </nav>
 
 <div class="toast" id="toast" hidden></div>
-<input id="planFile" type="hidden">
 <script src="assets/products.js"></script>
 <script src="assets/app.js"></script>
 </body>
