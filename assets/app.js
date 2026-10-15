@@ -6,7 +6,7 @@
    Every WhatsApp button on the site (chat, quick-order, product
    order and bag checkout) uses this number automatically.
    ============================================================ */
-const WA_NUMBER = "27613446518";
+const WA_NUMBER = "27681793036"; // 068 179 3036
 const SIZES = ["3","4","5","6","7","8","9"];
 const $ = s => document.querySelector(s);
 const money = n => "R " + n.toLocaleString("en-ZA");

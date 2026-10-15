@@ -38,7 +38,7 @@ against Nike ZA, Shelflife, Timberland SA and SA brand retail. Re-check quarterl
 the price fields (3rd/4th values per row) in `assets/products.js`.
 
 ## Ordering
-"Add to bag" → Checkout opens WhatsApp (+27 61 344 6518) with the full NowCulture order pre-filled.
+"Add to bag" → Checkout opens WhatsApp (+27 68 179 3036) with the full NowCulture order pre-filled.
 Free delivery + one free gift per order.
 
 Brand names belong to their respective owners. NowCulture is the store; everything is sold here.
