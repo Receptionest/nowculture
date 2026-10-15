@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<title>NowCulture — The Culture. On Your Feet. | Sneakers & Combos South Africa</title>
+<meta name="description" content="NowCulture is South Africa's sneaker feed. Shop Nike, Jordan, Adidas, New Balance & sneaker combos — scroll it like social, buy it in one tap. Free delivery, one free gift per order.">
+<link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/style.css?v=whatsapp-0681793036">
+</head>
+<body>
+<div class="announce">🔥 SPRING SALE NOW LIVE &nbsp;·&nbsp; FREE DELIVERY NATIONWIDE &nbsp;·&nbsp; ONE FREE GIFT PER ORDER &nbsp;·&nbsp; PRICED AT SA MARKET VALUE · COMBOS SAVE 30% VS BUYING BOTH PAIRS</div>
+
+<header class="topbar">
+  <a class="brand" href="#" onclick="goHome(event)">
+    <img src="assets/logo.svg" alt="NowCulture logo" width="38" height="38">
+    <span class="wordmark">now<em>culture</em><small>.co.za</small></span>
+  </a>
+  <div class="searchbox">
+    <span>🔍</span>
+    <input id="searchInput" type="search" placeholder="Search sneakers, brands, combos…" autocomplete="off">
+  </div>
+  <nav class="topicons">
+    <button title="Home" onclick="setView('feed')">🏠</button>
+    <button title="Explore" onclick="setView('explore')">🧭</button>
+    <button title="Combos" onclick="filterBrand('Combos')">🎁<span class="bdot">2×</span></button>
+    <button title="Saved" onclick="setView('saved')">🔖<span class="count" id="savedCount" hidden>0</span></button>
+    <button title="Bag" onclick="toggleCart(true)">🛍️<span class="count" id="cartCount" hidden>0</span></button>
+    <a class="avatar" href="#profile" onclick="setView('feed');return false;" title="NowCulture">NC</a>
+  </nav>
+</header>
+
+<div class="layout">
+  <!-- LEFT RAIL -->
+  <aside class="rail left">
+    <div class="profile-card" id="profile">
+      <img src="assets/logo.svg" alt="">
+      <h2>nowculture <span class="verified">✔</span></h2>
+      <p class="muted">The Culture. On Your Feet. 👟🇿🇦<br>SA's sneaker feed — scroll, tap, cop.<br>📦 Free delivery · 🎁 Free gift per order</p>
+      <div class="stats"><div><b id="statPosts">0</b><span>posts</span></div><div><b>13</b><span>brands</span></div><div><b>117+</b><span>combos</span></div></div>
+      <a class="btn grad block" id="waChatBtn" href="#" target="_blank" rel="noopener">💬 Chat on WhatsApp</a>
+    </div>
+    <nav class="menu">
+      <button data-view="feed" class="active" onclick="setView('feed')">🏠 <span>Feed</span></button>
+      <button data-view="explore" onclick="setView('explore')">🧭 <span>Explore</span></button>
+      <button data-view="saved" onclick="setView('saved')">🔖 <span>Saved</span> <b id="menuSaved"></b></button>
+      <button onclick="filterBrand('Combos')">🎁 <span>Sneaker Combos</span></button>
+      <button onclick="toggleCart(true)">🛍️ <span>Shopping Bag</span> <b id="menuCart"></b></button>
+    </nav>
+    <p class="fineprint">Every shoe is stocked & sold right here on NowCulture. Prices in ZAR. Sizes UK 3–9 on most styles — confirm on WhatsApp.</p>
+  </aside>
+
+  <!-- CENTRE FEED -->
+  <main class="centre">
+    <section class="stories" id="stories" aria-label="Brand stories"></section>
+
+    <section class="composer">
+      <img src="assets/logo.svg" alt="">
+      <div>
+        <b>nowculture</b> <span class="verified">✔</span>
+        <p>New heat just dropped 👇 Tap a post to pick your size, double-tap to like, bag it or order straight on WhatsApp. Combos = 2 pairs, 1 price. 🔥</p>
+      </div>
+    </section>
+
+    <div class="chips" id="chips"></div>
+    <div class="feedhead"><h1 id="viewTitle">Latest drops</h1><select id="sortSel" onchange="render()">
+      <option value="new">Sort: Latest</option><option value="liked">Most liked</option>
+      <option value="low">Price: low → high</option><option value="high">Price: high → low</option><option value="az">Name A–Z</option>
+    </select></div>
+
+    <section id="feed" class="feed"></section>
+    <section id="grid" class="grid" hidden></section>
+    <p id="emptyState" class="empty" hidden>No sneakers match that search. Try “Jordan”, “Samba” or “combo”. 👟</p>
+
+    <section class="reviews">
+      <h2>What the culture says ⭐⭐⭐⭐⭐</h2>
+      <div class="revgrid">
+        <article><b>Thandi Mkhize</b><span>Verified Purchase</span><p>“The quality of the shoes is outstanding! Comfortable, stylish, well-made. The Sneaker Combos are the best.”</p></article>
+        <article><b>Lerato Mokoena</b><span>Quality</span><p>“I bought Airforce from NowCulture in 2024, I still have them till today. Absolutely love them — buying another pair.”</p></article>
+        <article><b>Sipho Ndlovu</b><span>Verified Purchase</span><p>“Exceeded my expectations! Premium feel, top-notch craftsmanship. Worth every rand. Will definitely order again!”</p></article>
+        <article><b>Precious Mahlangu</b><span>Verified Purchase</span><p>“From ordering to delivery everything was smooth. Courier kept me updated, shoes arrived in perfect condition.”</p></article>
+      </div>
+    </section>
+
+    <footer class="sitefoot">
+      <img src="assets/logo.svg" alt="" width="30" height="30">
+      <p><b>nowculture</b> — The Culture. On Your Feet.<br>
+      WhatsApp orders: +27 68 179 3036 · Every product image is hosted on this site.<br>
+      Brand names belong to their respective owners; NowCulture is a concept storefront. Prices include the current Spring Sale where shown.</p>
+    </footer>
+  </main>
+
+  <!-- RIGHT RAIL -->
+  <aside class="rail right">
+    <h3>Suggested for you</h3>
+    <div id="suggested"></div>
+    <h3>Trending combos 🔥</h3>
+    <div id="trending"></div>
+  </aside>
+</div>
+
+<!-- PRODUCT MODAL -->
+<div class="overlay" id="modal" hidden>
+  <div class="sheet" role="dialog" aria-modal="true">
+    <button class="x" onclick="closeModal()">✕</button>
+    <div class="sheet-media"><img id="mImg" alt=""><span class="tag" id="mTag"></span><span class="heartburst" id="mHeart">♥</span></div>
+    <div class="sheet-body">
+      <p class="brandline" id="mBrand"></p>
+      <h2 id="mName"></h2>
+      <p class="price" id="mPrice"></p>
+      <p class="muted" id="mCaption"></p>
+      <label>Size (UK)</label>
+      <div class="sizes" id="mSizes"></div>
+      <label>Quantity</label>
+      <div class="qty"><button onclick="stepQty(-1)">−</button><span id="mQty">1</span><button onclick="stepQty(1)">+</button></div>
+      <div class="sheet-actions">
+        <button class="btn grad grow" id="mAdd">🛍️ Add to bag</button>
+        <button class="btn wa grow" id="mWa">💬 Order on WhatsApp</button>
+      </div>
+      <button class="btn ghost block" id="mSave">🔖 Save for later</button>
+      <ul class="perks"><li>🚚 Free delivery nationwide</li><li>🎁 One free gift per order</li><li>↩️ Size swap support on WhatsApp</li><li>✅ Sold &amp; delivered by NowCulture — this is the only store you need</li></ul>
+    </div>
+  </div>
+</div>
+
+<!-- CART DRAWER -->
+<div class="overlay dim" id="cartWrap" hidden>
+  <aside class="drawer">
+    <header><h2>Your bag 🛍️</h2><button class="x" onclick="toggleCart(false)">✕</button></header>
+    <div id="cartItems"></div>
+    <div class="cartfoot">
+      <div class="row"><span>Subtotal</span><b id="cartTotal">R 0</b></div>
+      <div class="row muted"><span>Delivery</span><span>FREE 🚚</span></div>
+      <div class="row muted"><span>Gift</span><span>1 FREE gift 🎁</span></div>
+      <button class="btn wa block big" onclick="checkoutWhatsApp()">💬 Checkout on WhatsApp</button>
+      <button class="btn ghost block" onclick="toggleCart(false)">Continue scrolling</button>
+      <p class="fineprint">Checkout opens WhatsApp with your order pre-filled to +27 68 179 3036. Pay & confirm delivery there — no card details on this site.</p>
+    </div>
+  </aside>
+</div>
+
+<nav class="mobilebar">
+  <button onclick="setView('feed')">🏠</button>
+  <button onclick="focusSearch()">🔍</button>
+  <button onclick="filterBrand('Combos')">🎁</button>
+  <button onclick="setView('saved')">🔖</button>
+  <button onclick="toggleCart(true)">🛍️</button>
+</nav>
+
+<div class="toast" id="toast" hidden></div>
+<script src="assets/products.js?v=whatsapp-0681793036"></script>
+<script src="assets/app.js?v=whatsapp-0681793036"></script>
+</body>
+</html>
